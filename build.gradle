@@ -1,0 +1,49 @@
+apply plugin: "wrapper"
+apply plugin: "java-library"
+apply plugin: "jacoco"
+
+
+sourceCompatibility = 10
+targetCompatibility = 10
+
+
+repositories {
+	mavenCentral();
+}
+
+
+dependencies {
+	testCompileOnly 	group: "org.junit.jupiter", 			name: "junit-jupiter-api", 		version: "5.1.0";
+	
+	testRuntimeOnly 	group: "org.junit.jupiter", 			name: "junit-jupiter-engine", 	version: "5.1.0";
+}
+
+
+compileJava {
+	options.encoding = "UTF-8";
+}
+
+
+wrapper {
+	gradleVersion = "4.9";
+}
+
+
+test {
+	useJUnitPlatform();
+}
+
+
+jacoco {
+	toolVersion = "0.8.1";
+}
+
+
+jacocoTestReport {
+	reports {
+		xml.enabled = true;
+		xml.destination = file( "$buildDir/reports/jacoco/xml/jacoco_test_report.xml" );
+		html.enabled = true;
+		html.destination = file( "$buildDir/reports/jacoco/html" );
+	}
+}
