@@ -1,1 +1,1 @@
-# binary-knapsack-solver
+# Binary Knapsack Solver
