@@ -41,13 +41,13 @@ public final class LongProcessor implements NumberProcessor<Long> {
 	
 	
 	@Override
-	public Long[] getArray( int size ) {
+	public Long[] createArray( int size ) {
 		return new Long[ size ];
 	}
 
 
 	@Override
-	public Long[][] getArray( int size1, int size2 ) {
+	public Long[][] createArray( int size1, int size2 ) {
 		return new Long[ size1 ][ size2 ];
 	}
 

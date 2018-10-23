@@ -42,13 +42,13 @@ public final class BigDecimalProcessor implements NumberProcessor<BigDecimal> {
 	
 
 	@Override
-	public BigDecimal[] getArray( int size ) {
+	public BigDecimal[] createArray( int size ) {
 		return new BigDecimal[ size ];
 	}
 	
 
 	@Override
-	public BigDecimal[][] getArray( int size1, int size2 ) {
+	public BigDecimal[][] createArray( int size1, int size2 ) {
 		return new BigDecimal[ size1 ][ size2 ];
 	}
 	

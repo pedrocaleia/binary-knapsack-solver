@@ -26,12 +26,12 @@ public final class DynamicProgrammingSolver<V> {
 	
 	public KnapsackSolution<Integer, V> findSolution( Collection<KnapsackItem<Integer, V>> items, Integer maximumSolutionWeight ) {
 		// Solution table initialized from 0 to the number of items and from 0 to the maximumSolutionWeight
-		V[][] solutionTable = this.valueProcessor.getArray( items.size() + 1, maximumSolutionWeight + 1 );
+		V[][] solutionTable = this.valueProcessor.createArray( items.size() + 1, maximumSolutionWeight + 1 );
 		
 		// Creation of arrays to old the weights and values
 		List<KnapsackItem<Integer, V>> itemsList = new ArrayList<>( items );
 		int[] weights = itemsList.stream().mapToInt( KnapsackItem::getWeight ).toArray();
-		V[] values = itemsList.stream().map( KnapsackItem::getValue ).toArray( this.valueProcessor::getArray );
+		V[] values = itemsList.stream().map( KnapsackItem::getValue ).toArray( this.valueProcessor::createArray );
 		
 		// Populate the first row with zeros
 		for( int n = 0; n < solutionTable[ 0 ].length; n++ ) {

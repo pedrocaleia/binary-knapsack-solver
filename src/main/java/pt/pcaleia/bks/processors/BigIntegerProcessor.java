@@ -42,13 +42,13 @@ public final class BigIntegerProcessor implements NumberProcessor<BigInteger> {
 	
 
 	@Override
-	public BigInteger[] getArray( int size ) {
+	public BigInteger[] createArray( int size ) {
 		return new BigInteger[ size ];
 	}
 	
 
 	@Override
-	public BigInteger[][] getArray( int size1, int size2 ) {
+	public BigInteger[][] createArray( int size1, int size2 ) {
 		return new BigInteger[ size1 ][ size2 ];
 	}
 	

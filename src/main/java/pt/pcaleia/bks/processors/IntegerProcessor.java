@@ -41,13 +41,13 @@ public final class IntegerProcessor implements NumberProcessor<Integer> {
 	
 	
 	@Override
-	public Integer[] getArray( int size ) {
+	public Integer[] createArray( int size ) {
 		return new Integer[ size ];
 	}
 
 
 	@Override
-	public Integer[][] getArray( int size1, int size2 ) {
+	public Integer[][] createArray( int size1, int size2 ) {
 		return new Integer[ size1 ][ size2 ];
 	}
 
