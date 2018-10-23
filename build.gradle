@@ -30,7 +30,13 @@ wrapper {
 
 
 test {
+	// Enable JUnit 5 Platform support
 	useJUnitPlatform();
+	
+	testLogging {
+		events = [ "skipped", "failed" ];
+		exceptionFormat = "full";
+	}
 }
 
 
