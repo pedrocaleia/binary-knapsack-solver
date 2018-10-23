@@ -1,7 +1,6 @@
 package pt.pcaleia.bks.processors;
 
 
-import java.util.Collection;
 import java.util.stream.Stream;
 
 
@@ -24,15 +23,8 @@ public final class IntegerProcessor implements NumberProcessor<Integer> {
 	
 	
 	@Override
-	public Integer addAll( Collection<Integer> values ) {
-		return values.parallelStream().mapToInt( Integer::intValue ).sum();
-	}
-	
-	
-	@Override
 	public Integer addAll( Stream<Integer> values ) {
 		return values.mapToInt( Integer::intValue ).sum();
-		
 	}
 	
 	

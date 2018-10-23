@@ -2,7 +2,6 @@ package pt.pcaleia.bks.processors;
 
 
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.stream.Stream;
 
 
@@ -25,15 +24,8 @@ public final class BigDecimalProcessor implements NumberProcessor<BigDecimal> {
 	
 	
 	@Override
-	public BigDecimal addAll( Collection<BigDecimal> numbers ) {
-		return numbers.stream().reduce( BigDecimal.ZERO, BigDecimal::add );
-	}
-	
-	
-	@Override
 	public BigDecimal addAll( Stream<BigDecimal> numbers ) {
 		return numbers.reduce( BigDecimal.ZERO, BigDecimal::add );
-		
 	}
 	
 	

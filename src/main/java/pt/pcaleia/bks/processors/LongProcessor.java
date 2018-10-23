@@ -1,8 +1,6 @@
 package pt.pcaleia.bks.processors;
 
 
-import java.util.Collection;
-import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.Stream;
 
 
@@ -25,18 +23,8 @@ public final class LongProcessor implements NumberProcessor<Long> {
 	
 	
 	@Override
-	public Long addAll( Collection<Long> values ) {
-		LongAdder longAdder = new LongAdder();
-		values.parallelStream().forEach( longAdder::add );
-		
-		return longAdder.sum();
-	}
-	
-	
-	@Override
 	public Long addAll( Stream<Long> values ) {
 		return values.mapToLong( Long::longValue ).sum();
-		
 	}
 	
 	

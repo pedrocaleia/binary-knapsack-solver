@@ -2,7 +2,6 @@ package pt.pcaleia.bks.processors;
 
 
 import java.math.BigInteger;
-import java.util.Collection;
 import java.util.stream.Stream;
 
 
@@ -25,15 +24,8 @@ public final class BigIntegerProcessor implements NumberProcessor<BigInteger> {
 	
 	
 	@Override
-	public BigInteger addAll( Collection<BigInteger> numbers ) {
-		return numbers.stream().reduce( BigInteger.ZERO, BigInteger::add );
-	}
-	
-	
-	@Override
 	public BigInteger addAll( Stream<BigInteger> numbers ) {
 		return numbers.reduce( BigInteger.ZERO, BigInteger::add );
-		
 	}
 	
 	
