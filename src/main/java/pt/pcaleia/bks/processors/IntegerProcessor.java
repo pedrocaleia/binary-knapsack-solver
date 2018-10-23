@@ -35,7 +35,7 @@ public final class IntegerProcessor implements NumberProcessor<Integer> {
 	
 	
 	@Override
-	public Integer max( Integer value1, Integer value2 ) {
+	public Integer maxOf( Integer value1, Integer value2 ) {
 		return Math.max( value1, value2 );
 	}
 	

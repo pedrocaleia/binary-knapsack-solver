@@ -36,7 +36,7 @@ public final class BigDecimalProcessor implements NumberProcessor<BigDecimal> {
 
 
 	@Override
-	public BigDecimal max( BigDecimal value1, BigDecimal value2 ) {
+	public BigDecimal maxOf( BigDecimal value1, BigDecimal value2 ) {
 		return value1.max( value2 );
 	}
 	

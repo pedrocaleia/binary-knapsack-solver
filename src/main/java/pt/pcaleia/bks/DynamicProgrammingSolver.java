@@ -48,7 +48,7 @@ public final class DynamicProgrammingSolver<V> {
 					V a = solutionTable[ itemIndex - 1 ][ weightIndex ];
 					V b = this.valueProcessor.add( values[ itemIndex - 1 ], solutionTable[ itemIndex - 1 ][ weightIndex - weights[ itemIndex - 1 ] ] );
 					
-					solutionTable[ itemIndex ][ weightIndex ] = this.valueProcessor.max( a, b );
+					solutionTable[ itemIndex ][ weightIndex ] = this.valueProcessor.maxOf( a, b );
 				}
 			}
 		}

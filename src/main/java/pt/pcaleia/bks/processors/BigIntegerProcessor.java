@@ -36,7 +36,7 @@ public final class BigIntegerProcessor implements NumberProcessor<BigInteger> {
 
 
 	@Override
-	public BigInteger max( BigInteger value1, BigInteger value2 ) {
+	public BigInteger maxOf( BigInteger value1, BigInteger value2 ) {
 		return value1.max( value2 );
 	}
 	

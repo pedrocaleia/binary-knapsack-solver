@@ -35,7 +35,7 @@ public final class LongProcessor implements NumberProcessor<Long> {
 	
 	
 	@Override
-	public Long max( Long value1, Long value2 ) {
+	public Long maxOf( Long value1, Long value2 ) {
 		return Math.max( value1, value2 );
 	}
 	
