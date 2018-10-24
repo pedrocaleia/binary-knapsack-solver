@@ -1,7 +1,6 @@
 package pt.pcaleia.bks;
 
 
-import java.math.BigDecimal;
 import java.util.Set;
 
 import pt.pcaleia.bks.processors.NumberProcessor;
@@ -21,7 +20,7 @@ public final class KnapsackSolution<W, V> {
 	private final V value;
 	
 	
-	KnapsackSolution( Set<KnapsackItem<W, V>> items, W weight, V value ) {
+	private KnapsackSolution( Set<KnapsackItem<W, V>> items, W weight, V value ) {
 		this.items = Set.copyOf( items );
 		this.weight = weight;
 		this.value = value;
@@ -33,22 +32,6 @@ public final class KnapsackSolution<W, V> {
 		V value = valueProcessor.addAll( items.stream().map( KnapsackItem::getValue ) );
 		
 		return new KnapsackSolution<W, V>( items, weight, value );
-	}
-	
-	
-	public static KnapsackSolution<Long, Long> getLongKnapsackSolution( Set<KnapsackItem<Long, Long>> items ) {
-		long weight = items.stream().mapToLong( KnapsackItem::getWeight ).sum();
-		long value = items.stream().mapToLong( KnapsackItem::getValue ).sum();
-		
-		return new KnapsackSolution<>( items, weight, value );
-	}
-	
-	
-	public static KnapsackSolution<BigDecimal, BigDecimal> getBigDecimalKnapsackSolution( Set<KnapsackItem<BigDecimal, BigDecimal>> items ) {
-		BigDecimal weight = items.stream().map( KnapsackItem::getWeight ).reduce( BigDecimal.ZERO, BigDecimal::add );
-		BigDecimal value = items.stream().map( KnapsackItem::getValue ).reduce( BigDecimal.ZERO, BigDecimal::add );
-		
-		return new KnapsackSolution<>( items, weight, value );
 	}
 	
 	
