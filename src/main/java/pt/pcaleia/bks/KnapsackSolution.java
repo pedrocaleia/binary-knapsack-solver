@@ -23,7 +23,7 @@ public final class KnapsackSolution<W, V> {
 	
 	
 	KnapsackSolution( Set<KnapsackItem<W, V>> items, W weight, V value ) {
-		this.items = Collections.unmodifiableSet( items );
+		this.items = Set.copyOf( items );
 		this.weight = weight;
 		this.value = value;
 	}
