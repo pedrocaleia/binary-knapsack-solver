@@ -2,7 +2,6 @@ package pt.pcaleia.bks;
 
 
 import java.math.BigDecimal;
-import java.util.Collections;
 import java.util.Set;
 
 import pt.pcaleia.bks.processors.NumberProcessor;
