@@ -1,4 +1,4 @@
-package pt.pcaleia.bks;
+package pt.pcaleia.bks.mitm;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import pt.pcaleia.bks.KnapsackItem;
+import pt.pcaleia.bks.KnapsackSolution;
 import pt.pcaleia.bks.processors.IntegerProcessor;
 import pt.pcaleia.bks.processors.LongProcessor;
 

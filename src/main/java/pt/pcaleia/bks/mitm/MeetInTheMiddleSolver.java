@@ -1,4 +1,4 @@
-package pt.pcaleia.bks;
+package pt.pcaleia.bks.mitm;
 
 
 import java.util.ArrayList;
@@ -9,6 +9,8 @@ import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+import pt.pcaleia.bks.KnapsackItem;
+import pt.pcaleia.bks.KnapsackSolution;
 import pt.pcaleia.bks.processors.NumberProcessor;
 
 
