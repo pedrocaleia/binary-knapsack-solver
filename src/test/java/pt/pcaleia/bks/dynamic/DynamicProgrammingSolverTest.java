@@ -1,4 +1,4 @@
-package pt.pcaleia.bks;
+package pt.pcaleia.bks.dynamic;
 
 
 import java.util.HashSet;
@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import pt.pcaleia.bks.DynamicProgrammingSolver;
 import pt.pcaleia.bks.KnapsackItem;
 import pt.pcaleia.bks.KnapsackSolution;
 import pt.pcaleia.bks.dynamic.arraycreators.LongArrayCreator;

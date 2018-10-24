@@ -1,4 +1,4 @@
-package pt.pcaleia.bks;
+package pt.pcaleia.bks.dynamic;
 
 
 import java.util.ArrayList;
@@ -7,6 +7,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import pt.pcaleia.bks.KnapsackItem;
+import pt.pcaleia.bks.KnapsackSolution;
 import pt.pcaleia.bks.dynamic.arraycreators.ArrayCreator;
 import pt.pcaleia.bks.processors.NumberProcessor;
 
