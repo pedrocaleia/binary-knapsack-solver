@@ -40,18 +40,6 @@ public final class BigDecimalProcessor implements NumberProcessor<BigDecimal> {
 		return value1.max( value2 );
 	}
 	
-
-	@Override
-	public BigDecimal[] createArray( int size ) {
-		return new BigDecimal[ size ];
-	}
-	
-
-	@Override
-	public BigDecimal[][] createArray( int size1, int size2 ) {
-		return new BigDecimal[ size1 ][ size2 ];
-	}
-	
 	
 	@Override
 	public int compare( BigDecimal value1, BigDecimal value2 ) {

@@ -40,18 +40,6 @@ public final class BigIntegerProcessor implements NumberProcessor<BigInteger> {
 		return value1.max( value2 );
 	}
 	
-
-	@Override
-	public BigInteger[] createArray( int size ) {
-		return new BigInteger[ size ];
-	}
-	
-
-	@Override
-	public BigInteger[][] createArray( int size1, int size2 ) {
-		return new BigInteger[ size1 ][ size2 ];
-	}
-	
 	
 	@Override
 	public int compare( BigInteger value1, BigInteger value2 ) {

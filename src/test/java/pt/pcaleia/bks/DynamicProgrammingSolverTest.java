@@ -9,6 +9,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import pt.pcaleia.bks.DynamicProgrammingSolver;
+import pt.pcaleia.bks.KnapsackItem;
+import pt.pcaleia.bks.KnapsackSolution;
+import pt.pcaleia.bks.dynamic.arraycreators.LongArrayCreator;
 import pt.pcaleia.bks.processors.LongProcessor;
 
 
@@ -19,11 +23,13 @@ public final class DynamicProgrammingSolverTest {
 	
 	
 	private static LongProcessor LONG_PROCESSOR;
+	private static LongArrayCreator LONG_ARRAY_CREATOR;
 	
 	
 	@BeforeAll
 	public static void beforeAll() {
 		LONG_PROCESSOR = new LongProcessor();
+		LONG_ARRAY_CREATOR = new LongArrayCreator();
 	}
 
 	
@@ -47,7 +53,7 @@ public final class DynamicProgrammingSolverTest {
 		items.add( item7 );
 
 		// Solver
-		DynamicProgrammingSolver<Long> solver = new DynamicProgrammingSolver<>( LONG_PROCESSOR );
+		DynamicProgrammingSolver<Long> solver = new DynamicProgrammingSolver<>( LONG_PROCESSOR, LONG_ARRAY_CREATOR );
 		
 		// Solution
 		KnapsackSolution<Integer, Long> solution = solver.findSolution( items, 18 );
@@ -69,7 +75,7 @@ public final class DynamicProgrammingSolverTest {
 		}
 		
 		// Solver
-		DynamicProgrammingSolver<Long> solver = new DynamicProgrammingSolver<>( LONG_PROCESSOR );
+		DynamicProgrammingSolver<Long> solver = new DynamicProgrammingSolver<>( LONG_PROCESSOR, LONG_ARRAY_CREATOR );
 		
 		// Solution
 		KnapsackSolution<Integer, Long> solution = solver.findSolution( items, 20_000 );

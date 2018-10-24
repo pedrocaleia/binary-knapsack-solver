@@ -38,18 +38,6 @@ public final class LongProcessor implements NumberProcessor<Long> {
 	public Long maxOf( Long value1, Long value2 ) {
 		return Math.max( value1, value2 );
 	}
-	
-	
-	@Override
-	public Long[] createArray( int size ) {
-		return new Long[ size ];
-	}
-
-
-	@Override
-	public Long[][] createArray( int size1, int size2 ) {
-		return new Long[ size1 ][ size2 ];
-	}
 
 
 	@Override

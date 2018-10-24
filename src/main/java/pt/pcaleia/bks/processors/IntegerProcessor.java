@@ -38,18 +38,6 @@ public final class IntegerProcessor implements NumberProcessor<Integer> {
 	public Integer maxOf( Integer value1, Integer value2 ) {
 		return Math.max( value1, value2 );
 	}
-	
-	
-	@Override
-	public Integer[] createArray( int size ) {
-		return new Integer[ size ];
-	}
-
-
-	@Override
-	public Integer[][] createArray( int size1, int size2 ) {
-		return new Integer[ size1 ][ size2 ];
-	}
 
 
 	@Override

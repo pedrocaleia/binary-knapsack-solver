@@ -20,9 +20,5 @@ public interface NumberProcessor<T> extends Comparator<T> {
 	public T subtract( T value1, T value2 );
 	
 	public T maxOf( T value1, T value2 );
-	
-	public T[] createArray( int size );
-	
-	public T[][] createArray( int size1, int size2 );
 
 }
