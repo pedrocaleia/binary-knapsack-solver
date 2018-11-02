@@ -14,10 +14,16 @@ targetCompatibility = 10
 
 repositories {
 	mavenCentral();
+	
+	maven {
+		url = "https://dl.bintray.com/pedrocaleia/maven"; 
+	}
 }
 
 
 dependencies {
+	compile				group: "pt.pcaleia",			name: "utils",					version: "1.1.0";
+
 	testCompileOnly 	group: "org.junit.jupiter",		name: "junit-jupiter-api",		version: "5.1.0";
 	
 	testRuntimeOnly		group: "org.junit.jupiter",		name: "junit-jupiter-engine",	version: "5.1.0";

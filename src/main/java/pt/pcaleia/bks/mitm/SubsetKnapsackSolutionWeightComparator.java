@@ -3,26 +3,21 @@ package pt.pcaleia.bks.mitm;
 
 import java.util.Comparator;
 
-import pt.pcaleia.bks.processors.NumberProcessor;
-
 
 /**
  * @author Pedro Caleia
  */
-class SubsetKnapsackSolutionWeightComparator<W> implements Comparator<SubsetKnapsackSolution<W, ?>> {
+class SubsetKnapsackSolutionWeightComparator implements Comparator<SubsetKnapsackSolution> {
 	
 	
-	private final NumberProcessor<W> weightProcessor;
-	
-	
-	public SubsetKnapsackSolutionWeightComparator( NumberProcessor<W> weightProcessor ) {
-		this.weightProcessor = weightProcessor;
+	public SubsetKnapsackSolutionWeightComparator() {
+		// Empty on purpose
 	}
 	
 	
 	@Override
-	public int compare( SubsetKnapsackSolution<W, ?> solution1, SubsetKnapsackSolution<W, ?> solution2 ) {
-		return this.weightProcessor.compare( solution1.getWeight(), solution2.getWeight() );
+	public int compare( SubsetKnapsackSolution solution1, SubsetKnapsackSolution solution2 ) {
+		return solution1.getWeight().compareTo( solution2.getWeight() );
 	}
 
 }
