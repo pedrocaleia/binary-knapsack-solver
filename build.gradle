@@ -1,11 +1,13 @@
 plugins {
 	id "com.github.kt3k.coveralls"	version "2.8.2";
+	id "com.jfrog.bintray"			version "1.8.4"
 }
 
 
 apply plugin: "wrapper"
 apply plugin: "java-library"
 apply plugin: "jacoco"
+apply plugin: "maven-publish"
 
 
 sourceCompatibility = 10
@@ -56,6 +58,17 @@ jacoco {
 }
 
 
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.9;
+			}
+		}
+	}
+}
+
+
 jacocoTestReport {
 	reports {
 		xml.enabled = true;
@@ -68,4 +81,57 @@ jacocoTestReport {
 
 coveralls {
 	jacocoReportPath = "$buildDir/reports/jacoco/xml/jacoco_test_report.xml";
+}
+
+task sourcesJar( type: Jar, dependsOn: classes ) {
+	from sourceSets.main.allJava;
+	classifier "sources";
+}
+
+
+task javadocJar( type: Jar, dependsOn: javadoc ) {
+	from javadoc;
+	classifier = "javadoc";
+}
+
+
+artifacts {
+	version = System.getenv( "TRAVIS_TAG" );
+	archives sourcesJar;
+	archives javadocJar;
+}
+
+
+publishing {
+	publications {
+		BintrayPublication( MavenPublication ) {
+			from components.java;
+			
+			groupId = "pt.pcaleia";
+			artifactId = "binary-knapsack-solver";
+			version = System.getenv( "TRAVIS_TAG" );
+			
+			artifact sourcesJar;
+			artifact javadocJar;
+		}
+	}
+}
+
+
+bintray {
+	user = System.getenv( "BINTRAY_USER" );
+	key = System.getenv( "BINTRAY_KEY" );
+	
+	pkg {
+		repo = "maven";
+		name = "binary-knapsack-solver";
+		
+		version {
+			name = System.getenv( "TRAVIS_TAG" );
+		}
+	}
+	
+	publications = [ "BintrayPublication" ];
+	
+	publish = true;
 }

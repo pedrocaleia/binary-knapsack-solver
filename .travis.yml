@@ -5,6 +5,9 @@ jdk: openjdk10
 before_install:
   - chmod +x gradlew
   
+script:
+  - ./gradlew check jacocoTestCoverageVerification
+
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -16,3 +19,19 @@ cache:
 
 after_success:
   - ./gradlew jacocoTestReport coveralls
+
+deploy:
+  - provider: releases
+    skip_cleanup: true
+    api_key:
+      secure: Bc8hVYRTIATQThdXM5Y/2unFjNyST0g+3/ksF+qszxFWukNHUfPhTkUg7/wNnTyzwFgfAAJUhapaBw0Jmwhd7kul0OhCyS59vptgGQoHgQUFnuu0u/fHa+YRmveV/+2bEKnsHfv+fsdgenvDN++UWI6mIFhPtglsxgh0+VHCqqk33DjWqQVZHWEY6pOrVrOkjkYbfffSauVeMLfo5uyiPSvWPP5yF1lklEVRCEavOGg/ZXfW+cPabge8sqby2IBP74kc2UytX6fICka93yfeRh0bx4FxEGi+C/rbBHqdTNMt+j+PNV7/A4tUXPljGfk11coabeiR4T/XMiaFgvmmVOh5z0aHnnoZKFuSTtyx6E9BoFiCv+AKehKpzHFYLcvE4xyT5Y25cYbdrtpfc3zrdafe/jKA2OJ54momLc2ymNwBRFvXvWV8KI9xDodzI7ffIQyyFwyem+lLcgPQKUt4770idsvvKUbaSIDqEPxi8r3QrjDEgp85C+XPdhF73aqlc1tParLg5g1POI6ah22mmiMFaq/wXPkohEBOOjYlRnmBrXBC2c2BSvdvgTl8mbU3Hq7GBwWl+DfkA5WsHnmAWs9cLMMz4P0fxDWPxZevJRYhVSwWUQ9rHpFXGvGttZZOLo3UsLvP9HP7/+SCcmvo+4eskrcrD8w4kkGuG1KNOHE=
+    file_glob: true
+    file: "build/libs/*.jar"
+    on:
+      tags: true
+
+  - provider: script
+    skip_cleanup: true
+    script: ./gradlew bintrayUpload
+    on:
+      tags: true
